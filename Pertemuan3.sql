@@ -92,15 +92,14 @@ select * from project;
 DELIMITER $$
 CREATE PROCEDURE Proj_Lima()
 BEGIN
-	SELECT * 
-    FROM project P
+	SELECT * FROM project
     WHERE Dnum = 5;
 END $$
 DELIMITER ;
 Call Proj_Lima;
 
 -- ----------------------- SOAL 7 -------------------------- 
--- Buatlah Procedure untuk menampilkan nama department dari product yg nama nya adalah 'productX' (Pakai JOIN)
+-- Buatlah Procedure untuk menampilkan nama department dari project yg nama nya adalah 'productX' (Pakai JOIN)
 DELIMITER $$
 CREATE PROCEDURE getDeptProductX()
 BEGIN
@@ -251,8 +250,8 @@ SELECT @jumlah AS total;
 DELIMITER $$
 CREATE PROCEDURE modifySalary(INOUT gaji decimal(5,0))
 BEGIN
-	IF gaji <=30000 THEN
-    SET gaji = 32000;
+	IF gaji <= 30000 THEN
+        SET gaji = 32000;
     END IF;
 END $$
 DELIMITER ;

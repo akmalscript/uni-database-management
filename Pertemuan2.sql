@@ -32,7 +32,7 @@ END$$
 
 DELIMITER ;
 
-CALL getProjectsByLocation2("Stafford");
+CALL getProjectsByLocation2('Stafford');
 
 
 -- --------------------- PARAMETER OUT --------------------- --
@@ -54,7 +54,7 @@ SELECT @jumlah AS jumlah_project;
 
 
 -- ------------------- PARAMETER IN OUT -------------------- --
--- Ubah salary, untuk employee yang salary < 30000 menjadi salary = 320000
+-- Ubah salary, untuk employee yang salary < 26000 menjadi salary = 27000
 DELIMITER $$
 DROP PROCEDURE modifySalary;
 CREATE PROCEDURE modifySalary(INOUT Salary decimal(5,0))

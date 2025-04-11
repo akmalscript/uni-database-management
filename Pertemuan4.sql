@@ -69,7 +69,7 @@ SELECT
     COUNT(D.ESSN) AS DEPENDENT  
 FROM employee E  
 JOIN DEPENDENT D ON E.SSN = D.ESSN  
-GROUP BY E.SSN, D.ESSN;  
+GROUP BY E.SSN, E.FNAME;  
 -- test soal 3
 SELECT * FROM EMP_DEP;
 -- --------------------------------------------------
@@ -108,7 +108,7 @@ SELECT * FROM EMP_30;
 
 -- --------------------------------------------------
 -- --------------------- SOAL 6 ---------------------
--- Buatlah sebuah VIEW yang menampilkan daftar nsms proyek beserta jumlah total karyawan yang bekerja pada setiap proyek. 
+-- Buatlah sebuah VIEW yang menampilkan daftar nama proyek beserta jumlah total karyawan yang bekerja pada setiap proyek. 
 select * from works_on;
 CREATE VIEW v_proj AS  
 SELECT  
@@ -124,7 +124,7 @@ SELECT * FROM v_proj;
 -- --------------------------------------------------
 -- --------------------- SOAL 7 ---------------------  
 -- Buatlah sebuah VIEW untuk menampilkan informasi karyawan beserta departemen tempat mereka bekerja. 
--- View menampilkan `Fname`, `Lname`), dan `Dname` 
+-- View menampilkan `Fname`, `Lname`, dan `Dname` 
 CREATE VIEW emp_dept AS  
 SELECT  
     e.Fname,  
@@ -203,7 +203,7 @@ CREATE TRIGGER before_insert_dept
 BEFORE INSERT ON department
 FOR EACH ROW
 BEGIN
-    IF (SELECT COUNT(*) FROM department WHERE DNAME = NEW.DNAME) THEN
+    IF (SELECT COUNT(*) FROM department WHERE DNAME = NEW.DNAME) > 0 THEN
         SIGNAL SQLSTATE '45000'
         SET MESSAGE_TEXT = 'Nama department sudah ada, input ditolak';
     END IF;
