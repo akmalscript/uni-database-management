@@ -17,3 +17,10 @@ This repository includes:
 ## 🛠 Requirements
 - MySQL Workbench 🖥️
 - Basic knowledge of SQL 🔍
+
+## References
+- **Database Management Lecture**
+- [**SQLDrip by ReginaKirana**](https://github.com/ReginaKirana/SQLDrip) 
+
+## Author
+[**Akmal FA**](https://github.com/akmalscript)
